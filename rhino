@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "Fred's Rhino!!"
-java -jar js.jar -opt -1 $*
