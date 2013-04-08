@@ -1,0 +1,2 @@
+all:
+	./test-tasty.js
