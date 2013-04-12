@@ -16,7 +16,8 @@ var TastyJason = {
 	  parse: function(cmd) {
 		uri=parseUri(cmd);
 		json=getJsonFromUrl(uri.query);
-		print(json.description);
+		//print(json.description);
+		print(uri.path);
   }
 };
 
