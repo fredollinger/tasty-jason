@@ -4,6 +4,8 @@
 load("third-party/env.rhino.1.2.js");
 load("tasty-jason.js");
 
+TastyJason.parse("https://api.delicious.com/v1/posts/add?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=1984—09—01T14:21:31Z&replace=no&shared=yes");
+
 /*  1. Create TastyJSON object.
 		2. Add method to parse uri and test
 	  3. Connect this to add method below

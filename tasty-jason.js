@@ -1,7 +1,12 @@
 load("third-party/taffy-min.js");
 load("third-party/parseuri.js");
 
-
+var TastyJason = {
+	  parse: function(cmd) {
+		print(cmd);
+    // ...do something
+  }
+};
 
 /* 1. Create new object
 	 2. Create function parse uri
