@@ -1,6 +1,14 @@
 load("third-party/taffy-min.js");
 load("third-party/parseuri.js");
 
+
+
+/* 1. Create new object
+	 2. Create function parse uri
+*/
+
+// Pass in the path to the rss library to the constructor and have as a propery to f tasty jason.
+
 // Create class TastyJason
 /* add funciton addnewbookmark to this class w/ variables:
 

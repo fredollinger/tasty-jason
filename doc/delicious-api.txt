@@ -1,6 +1,7 @@
 From: https://delicious.com/developers/addnewbookmark
 
 https://api.delicious.com/v1/posts/add? — add a new bookmark
+
 Add a post to Delicious.
 ARGUMENTS
 
@@ -26,3 +27,4 @@ http://www.cl.cam.ac.uk/~mgk25/iso—time.html for Example: "1984—09—01T14:2
 
 &shared=no
 (optional) make the item private
+
