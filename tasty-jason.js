@@ -1,10 +1,22 @@
 load("third-party/taffy-min.js");
 load("third-party/parseuri.js");
 
+function getJsonFromUrl(query) {
+  //var query = location.search.substr(1);
+  var data = query.split("&");
+  var result = {};
+  for(var i=0; i<data.length; i++) {
+    var item = data[i].split("=");
+    result[item[0]] = item[1];
+  }
+  return result;
+}
+
 var TastyJason = {
 	  parse: function(cmd) {
-		print(cmd);
-    // ...do something
+		uri=parseUri(cmd);
+		json=getJsonFromUrl(uri.query);
+		print(json.description);
   }
 };
 
