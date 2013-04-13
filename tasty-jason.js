@@ -13,12 +13,12 @@ function getJsonFromUrl(query) {
 }
 
 var TastyJason = {
-	  parse: function(cmd) {
+	parse: function(cmd) {
 		uri=parseUri(cmd);
 		json=getJsonFromUrl(uri.query);
 		//print(json.description);
 		print(uri.path);
-  }
+}
 };
 
 /* 1. Create new object
