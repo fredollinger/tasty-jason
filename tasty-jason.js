@@ -13,12 +13,34 @@ function getJsonFromUrl(query) {
 }
 
 var TastyJason = {
-	parse: function(cmd) {
+	add: function(json, db) {
+      var rss = readFile(db);
+      tf = TAFFY(rss);
+
+      var bk = tf().select("t"); 
+      print(JSON.stringify(bk));
+      // BEGIN insert()
+      tf.insert({ "url":json.url, 
+                  "description":json.description,
+                  "extended": json.extended,
+                  "tags": json.tags,
+                  "dt": json.dt,
+                  "shared": json.dt
+      }); // END insert()
+  },
+  // BEGIN parse()
+	parse: function(cmd, db) {
 		uri=parseUri(cmd);
 		json=getJsonFromUrl(uri.query);
 		//print(json.description);
-		print(uri.path);
-}
+    if ("/v1/posts/add" === uri.path){
+		  print(uri.path);
+      this.add(json, db);
+    }
+    else
+      print("UK CMD");
+  } // END parse()
+
 };
 
 /* 1. Create new object
