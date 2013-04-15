@@ -13,7 +13,7 @@ function getJsonFromUrl(query) {
 }
 
 var TastyJason = {
-	add: function(json, db) {
+	add: function(json, username, db) {
       var rss = readFile(db);
       tf = TAFFY(rss);
 
@@ -28,17 +28,24 @@ var TastyJason = {
                   "shared": json.dt
       }); // END insert()
   },
+	auth: function(raw) {
+		uri=parseUri(raw);
+    print(uri.user);
+    print(uri.password);
+  },
   // BEGIN parse()
 	parse: function(cmd, db) {
+    username="follinge";
 		uri=parseUri(cmd);
 		json=getJsonFromUrl(uri.query);
 		//print(json.description);
     if ("/v1/posts/add" === uri.path){
 		  print(uri.path);
-      this.add(json, db);
+      this.add(json, username, db);
     }
     else
       print("UK CMD");
+    return "Done";
   } // END parse()
 
 };
