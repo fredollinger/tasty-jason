@@ -4,7 +4,9 @@ load("third-party/env.rhino.1.2.js");
 load("tasty-jason.js");
 db = "bookmarks.json";
 
+/*
 TastyJason.auth("http:follinge:cupogold@api.delicious.com/v1/posts/add?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=19840901T14:21:31Z&replace=no&shared=yes", db );
+*/
 
 /*
 
@@ -50,5 +52,7 @@ http://www.cl.cam.ac.uk/~mgk25/iso—time.html for Example: "1984—09—01T14:2
 var rss = readFile('bookmarks.json');
 json = TAFFY(rss);
 //"a": "follinge", "d": "openoffice.org-3.3.0-20.10.fc14 | Build Info | koji", "n": "", "u": "http://koji.fedoraproject.org/koji/buildinfo?buildID=276232", "t": ["aooo"], "dt": "2013-03-30T02:54:00Z"
-var bk = json().select("u"); 
+json.insert({"a": "follinge", "d": "bob", "n": "", "u": "http://koji.fedoraproject.org/tasty", "t": ["buddhism"], "dt": "2013-04-30T02:54:00Z"});
+var bk = json().select("d"); 
 print(JSON.stringify(bk));
+json.store();
