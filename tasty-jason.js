@@ -79,12 +79,14 @@ var TastyJason = {
       var bk = tf().select("t"); 
       print(JSON.stringify(bk));
       // BEGIN insert()
-      tf.insert({ "url":json.url, 
-                  "description":json.description,
-                  "extended": json.extended,
-                  "tags": json.tags,
+      tf.insert({ 
+									"a":username, 
+                  "d":json.description,
+									"url":json.url, 
+                  "n": json.extended,
+                  "t": json.tags,
                   "dt": json.dt,
-                  "shared": json.dt
+                  "shared": json.shared
       }); // END insert()
   },
 	auth: function(raw) {
