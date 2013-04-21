@@ -1,6 +1,15 @@
 load("third-party/taffy-min.js");
 load("third-party/parseuri.js");
 
+//QString url = "http://feeds.delicious.com/v2/json/" + user +"/atom";
+//"http://feeds.delicious.com/v2/json/follinge/atom"
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.indexOf(str) == 0;
+  };
+}
+
 function getJsonFromUrl(query) {
   //var query = location.search.substr(1);
   var data = query.split("&");
@@ -38,10 +47,15 @@ var TastyJason = {
     username="follinge";
 		uri=parseUri(cmd);
 		json=getJsonFromUrl(uri.query);
+    matchtags="/v2/json/" + username; // if we are given a username they want to match tags
 		//print(json.description);
     if ("/v1/posts/add" === uri.path){
 		  print(uri.path);
       this.add(json, username, db);
+    }
+    //else if "/v2/json/follinge/atom" === uri.path){
+    else if ( uri.path.startsWith(matchtags) ) {
+		  print("Match tags\n");
     }
     else
       print("UK CMD");

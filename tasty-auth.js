@@ -1,5 +1,4 @@
-function load(url, callback)
-{
+function load(url, callback) {
     // adding the script tag to the head as suggested before
     var head = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');

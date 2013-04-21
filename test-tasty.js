@@ -1,15 +1,21 @@
-#!./third-party/rhino
+#!/opt/spidermonkey/bin/js17
+//#!./third-party/rhino
 
-load("third-party/env.rhino.1.2.js");
+//else if "/v2/json/follinge/atom" === uri.path){
+
+//load("third-party/env.rhino.1.2.js");
 load("tasty-jason.js");
 db = "bookmarks.json";
 
-TastyJason.auth("http:follinge:cupogold@api.delicious.com/v1/posts/add?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=19840901T14:21:31Z&replace=no&shared=yes", db );
+TastyJason.parse("http:follinge:delany98@api.delicious.com/v2/follinge/aooo");
 
 /*
+TastyJason.auth("http:follinge:delany98@api.delicious.com/v1/posts/add?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=19840901T14:21:31Z&replace=no&shared=yes", db );
 
 TastyJason.parse("https://api.delicious.com/v1/posts/add?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=19840901T14:21:31Z&replace=no&shared=yes", db );
+*/
 
+/*
 // This is a nonsense cmd for testing...
 //TastyJason.parse("https://api.delicious.com/v1/posts/search?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=1984—09—01T14:21:31Z&replace=no&shared=yes");
 */
@@ -49,6 +55,23 @@ http://www.cl.cam.ac.uk/~mgk25/iso—time.html for Example: "1984—09—01T14:2
 
 var rss = readFile('bookmarks.json');
 json = TAFFY(rss);
+/* If they have this string plus a username, they are actually searching for a match with 
+   the next line as a tag. That is:
+
+  "/v2/json/username/tag_to_search_for_matches"
+
+*/
+
+/*
+user="follinge";
+cmd="/v2/json/follinge/atom"; // test command which searchs for atom rss links from user follinge
+str="/v2/json/" + user;
+if ( cmd.startsWith(str) ) {
+  print("Match!!");
+}
+*/
+
+//else if "/v2/json/follinge/atom" === uri.path){
 //"a": "follinge", "d": "openoffice.org-3.3.0-20.10.fc14 | Build Info | koji", "n": "", "u": "http://koji.fedoraproject.org/koji/buildinfo?buildID=276232", "t": ["aooo"], "dt": "2013-03-30T02:54:00Z"
-var bk = json().select("u"); 
-print(JSON.stringify(bk));
+//var bk = json().select("t"); 
+//print(JSON.stringify(bk));
