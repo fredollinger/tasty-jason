@@ -7,7 +7,10 @@
 load("tasty-jason.js");
 db = "bookmarks.json";
 
-TastyJason.parse("http:follinge:jason@api.delicious.com/v2/follinge/aooo");
+//TastyJason.parse("http:follinge:jason@api.delicious.com/v2/follinge/aooo");
+/*
+TastyJason.auth("http:follinge:cupogold@api.delicious.com/v1/posts/add?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=19840901T14:21:31Z&replace=no&shared=yes", db );
+*/
 
 /*
 TastyJason.auth("http:follinge:delany98@api.delicious.com/v1/posts/add?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=19840901T14:21:31Z&replace=no&shared=yes", db );
@@ -24,7 +27,6 @@ TastyJason.parse("https://api.delicious.com/v1/posts/add?url=http://www.google.c
 		2. Add method to parse uri and test
 	  3. Connect this to add method below
 
-https://api.delicious.com/v1/posts/add? 
 
 Add a post to Delicious.
 ARGUMENTS
@@ -73,5 +75,12 @@ if ( cmd.startsWith(str) ) {
 
 //else if "/v2/json/follinge/atom" === uri.path){
 //"a": "follinge", "d": "openoffice.org-3.3.0-20.10.fc14 | Build Info | koji", "n": "", "u": "http://koji.fedoraproject.org/koji/buildinfo?buildID=276232", "t": ["aooo"], "dt": "2013-03-30T02:54:00Z"
+<<<<<<< HEAD
 //var bk = json().select("t"); 
 //print(JSON.stringify(bk));
+/*
+json.insert({"a": "follinge", "d": "bob", "n": "", "u": "http://koji.fedoraproject.org/tasty", "t": ["buddhism"], "dt": "2013-04-30T02:54:00Z"});
+var bk = json().select("d"); 
+print(JSON.stringify(bk));
+json.store();
+*/

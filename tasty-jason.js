@@ -1,3 +1,62 @@
+/** TastyJason
+ *
+ * Server side bookmark storage in JSON and javascript
+ * 
+ * By: Fred Ollinger
+ * 
+ * Copyright 2013
+ * 
+ */
+
+//  BEGIN localStorage
+/** Emulate HTML5 localStorage.
+ * 
+ * http://dev.w3.org/html5/webstorage/#the-storage-interface
+ * 
+ * Based on:  http://libx.cs.vt.edu/~gback/stuff/localstorage.js
+ *
+ * https://github.com/thatcher/env-js/commit/ac55e6e3aa985e8fbee126d47f461b06190ecbdf
+ * 
+ * by Chris Thatcher
+ */
+
+localStorage = new Array();
+
+localStorage.byKey = { };
+
+localStorage.key = function (index) {
+    return this[index] == undefined ? null : this[index].key;
+}
+
+localStorage.getItem = function (key) {
+    var rc = this.byKey[key] != undefined ? this.byKey[key].data : null;
+    return rc;
+}
+
+localStorage.setItem = function (key, data) {
+    if (this.byKey[key] == undefined) {
+        var entry = { key : key, index: this.length };
+        this.push(entry);
+        this.byKey[key] = entry;
+    }
+
+    this.byKey[key].data = data;
+}
+
+localStorage.removeItem = function (key) {
+    var entry = this.byKey[key];
+    if (entry != undefined) {
+        this.splice(entry.index, 1);
+        delete this.byKey[key];
+    }
+}
+
+localStorage.clear = function () {
+    this.splice(0, this.length);
+    this.byKey = { };
+}
+// END localStorage
+
 load("third-party/taffy-min.js");
 load("third-party/parseuri.js");
 
@@ -29,12 +88,14 @@ var TastyJason = {
       var bk = tf().select("t"); 
       print(JSON.stringify(bk));
       // BEGIN insert()
-      tf.insert({ "url":json.url, 
-                  "description":json.description,
-                  "extended": json.extended,
-                  "tags": json.tags,
+      tf.insert({ 
+									"a":username, 
+                  "d":json.description,
+									"url":json.url, 
+                  "n": json.extended,
+                  "t": json.tags,
                   "dt": json.dt,
-                  "shared": json.dt
+                  "shared": json.shared
       }); // END insert()
   },
 	auth: function(raw) {
@@ -97,3 +158,5 @@ http://www.cl.cam.ac.uk/~mgk25/iso—time.html for Example: "1984—09—01T14:2
 (optional) make the item private
 
 */
+
+// Tue Apr 16 10:16:49 PDT 2013
