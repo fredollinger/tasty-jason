@@ -7,7 +7,7 @@
 load("tasty-jason.js");
 db = "bookmarks.json";
 
-TastyJason.parse("http:follinge:delany98@api.delicious.com/v2/follinge/aooo");
+TastyJason.parse("http:follinge:jason@api.delicious.com/v2/follinge/aooo");
 
 /*
 TastyJason.auth("http:follinge:delany98@api.delicious.com/v1/posts/add?url=http://www.google.com&description=Search Page&extended=What we search&tags=search&dt=19840901T14:21:31Z&replace=no&shared=yes", db );
