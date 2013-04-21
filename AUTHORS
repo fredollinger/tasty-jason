@@ -1,0 +1,12 @@
+Tasty Jason is by Fred Ollinger (follinge@gmail.com)
+
+It uses the following libraries:
+
+1. TaffyDB - SQL like interface to JSON for javascript
+typicaljoe:
+http://taffydb.com 
+
+2. Envjs - Emulates pieces of a browser for testing with rhino
+By John Resig <http://ejohn.org/> and the Envjs Team
+
+3. Rhino - Command line javascript engine for testing
